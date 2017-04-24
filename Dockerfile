@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y groff && \
 RUN groupadd -r scout2 && useradd  -ms /bin/bash -r -g scout2 scout2 && \
     chown -R scout2:scout2 /Scout2
 
-ENV AWS_PROFILE=""
+ENV AWS_PROFILE="default"
 COPY scout2-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 

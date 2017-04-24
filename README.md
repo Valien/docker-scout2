@@ -13,6 +13,8 @@ A few pre-requisites to get this to work properly:
 
     You can view the full Dockerfile and the `entrypoint.sh` file in the source code if you have any questions about what is running and how it is working.
 
+* Optional: You can use the environment variable `-e AWS_PROFILE=<your AWS profile>` to pass along a different set of AWS credentials. If one is not provided then Scout2 will use the `default` profile.
+
 The following repos were used in the build of this image:
 
 * https://github.com/nccgroup/Scout2 - Scout2 application
