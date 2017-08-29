@@ -7,9 +7,11 @@ A few pre-requisites to get this to work properly:
 
 * You need your AWS credentials. See this http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html to set it up. You do not have to have AWS CLI installed on your system but for this container to work you will need to have the config and credentials file ready to be read.
 * Once your AWS creds are ready then run this command:
-    `docker run --rm -v <path to your credentials>/.aws/:/home/scout2/.aws:ro -v <path to where you want to have reports dumped>:/reports:rw valien/docker-scout2`
+    `docker run --rm -v <path to your credentials>/.aws/:/home/scout2/.aws:rw -v <path to where you want to have reports dumped>:/reports:rw valien/docker-scout2`
 
     What this does is run the docker image (or pulls it if you don't have it cached), then mounts your aws credentials to the container. Runs the `Scout2.py` application, outputs the report.html and then tears down the container upon finishing.
+
+    **Note:** Previously you could have your .aws credentials flagged with `:ro` only but now it requires the `:rw` flag so that the `opinel` directory (library used by Scout2) can be written. AFAIK nothing is written to this folder. 
 
     You can view the full Dockerfile and the `entrypoint.sh` file in the source code if you have any questions about what is running and how it is working.
 
