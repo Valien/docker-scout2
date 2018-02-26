@@ -1,6 +1,6 @@
 FROM python
 
-MAINTAINER Allen Vailliencourt <allen.vailliencourt@forty8fiftylabs.com>
+LABEL maintainer="Allen Vailliencourt <allen.vailliencourt@forty8fiftylabs.com>"
 
 RUN apt-get update && apt-get install -y groff && \
     pip install awscli && \
