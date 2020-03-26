@@ -1,4 +1,7 @@
 # docker-scout2
+
+**Note: The Scout2 project has been deprecated so no new updates/fixes are coming from upstream. Consider migrating to Scout Suite in the future**
+
 Dockerized AWS Scout2
 
 This Docker repo is for building a running container that will automatically run the default Scout2 ruleset through AWS and push out the report file for local viewing.
