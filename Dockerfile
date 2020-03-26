@@ -1,4 +1,4 @@
-FROM python
+FROM python as builder
 
 LABEL maintainer="Allen Vailliencourt <allen.vailliencourt@forty8fiftylabs.com>"
 
@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y groff && \
 # Change to Scout2 directory and complete installation
 RUN cd Scout2 && \    
     python setup.py install
-    
+
+FROM builder AS finalbuild    
 # Adding non-root user
 RUN groupadd -r scout2 && useradd  -ms /bin/bash -r -g scout2 scout2 && \
     chown -R scout2:scout2 /Scout2
